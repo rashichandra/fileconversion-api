@@ -1,6 +1,6 @@
 package com.automated.pdfconversion.RESTConstrollers;
 
-import com.automated.pdfconversion.PdfService;
+import com.automated.pdfconversion.RESTService.PdfService;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
