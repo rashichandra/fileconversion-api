@@ -1,4 +1,4 @@
-package com.automated.pdfconversion;
+package com.automated.pdfconversion.RESTService;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
@@ -31,7 +31,7 @@ public class PdfService {
         }
     }
 
-    private byte[] convertTxttoPdf(MultipartFile file) throws Exception {
+    public byte[] convertTxttoPdf(MultipartFile file) throws Exception {
         PDDocument document = new PDDocument();
         PDPage page = new PDPage();
         document.addPage(page);
@@ -59,11 +59,12 @@ public class PdfService {
         return out.toByteArray();
     }
 
-    private byte[] convertDocxToPdf(MultipartFile file) throws Exception{
+    public byte[] convertDocxToPdf(MultipartFile file) throws Exception{
         WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage.load(file.getInputStream());
         ByteArrayOutputStream pdfOutputStream = new ByteArrayOutputStream();
         Docx4J.toPDF(wordMLPackage,pdfOutputStream);
         return pdfOutputStream.toByteArray();
     }
+
 
 }
